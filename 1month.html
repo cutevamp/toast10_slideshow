@@ -1,7 +1,5 @@
-<html>
 <!-- Load Stripe.js on your website. -->
-<head><script src="https://js.stripe.com/v3"></script></head>
-<body>
+<script src="https://js.stripe.com/v3"></script>
 
 <!-- Create a button that your customers click to complete their purchase. -->
 <button id="checkout-button" role="link">Pay</button>
@@ -17,7 +15,7 @@
     // When the customer clicks on the button, redirect
     // them to Checkout.
     stripe.redirectToCheckout({
-      items: [{plan: 'plan_EaC7JzSTnxaBcZ', quantity: 1}],
+      items: [{plan: 'plan_EaC4IkUHaO0nAa', quantity: 1}],
 
       // Note that it is not guaranteed your customers will be redirected to this
       // URL *100%* of the time, it's possible that they could e.g. close the
@@ -35,5 +33,3 @@
     });
   });
 </script>
-</body>
-</html>
