@@ -1,0 +1,29 @@
+<!-- Create a button that your customers click to complete their purchase. -->
+<button id="checkout-button" role="link">Pay</button>
+<div id="error-message"></div>
+<script><br />
+var stripe = Stripe('pk_test_L60QAfD7eXa600WBtepafoaR', {<br />
+betas: ['checkout_beta_4']<br />
+});</p>
+<p>var checkoutButton = document.getElementById('checkout-button');<br />
+checkoutButton.addEventListener('click', function () {<br />
+// When the customer clicks on the button, redirect<br />
+// them to Checkout.<br />
+stripe.redirectToCheckout({<br />
+items: [{plan: 'plan_Ea8D6RVwpJ975k', quantity: 1}],</p>
+<p>// Note that it is not guaranteed your customers will be redirected to this<br />
+// URL *100%* of the time, it's possible that they could e.g. close the<br />
+// tab between form submission and the redirect.<br />
+successUrl: 'https://www.rockzfx.com/success',<br />
+cancelUrl: 'https://www.rockzfx.com/canceled',<br />
+})<br />
+.then(function (result) {<br />
+if (result.error) {<br />
+// If `redirectToCheckout` fails due to a browser or network<br />
+// error, display the localized error message to your customer.<br />
+var displayError = document.getElementById('error-message');<br />
+displayError.textContent = result.error.message;<br />
+}<br />
+});<br />
+});<br />
+</script>
